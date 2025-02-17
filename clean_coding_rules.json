@@ -1,0 +1,107 @@
+{
+  "title": "Clean Code Rules",
+  "description": "A structured set of clean coding principles based on Robert C. Martin's Clean Code. These rules enforce maintainable, readable, and efficient software development practices.",
+  "rules": [
+    {
+      "id": "R001",
+      "name": "Meaningful Names",
+      "description": "Use clear, descriptive, and searchable names. Avoid cryptic, misleading, or abbreviated identifiers.",
+      "example": {
+        "bad": "def calcRev():",
+        "good": "def calculate_total_revenue():"
+      }
+    },
+    {
+      "id": "R002",
+      "name": "Small Functions",
+      "description": "Each function should do one thing only and be as small as possible (< 20 lines). Long functions should be broken into smaller, reusable parts.",
+      "violation_check": "Function length > 20 lines."
+    },
+    {
+      "id": "R003",
+      "name": "Descriptive Function Names",
+      "description": "Function names should reflect exact behavior. Avoid generic or vague names.",
+      "example": {
+        "bad": "def check():",
+        "good": "def is_valid_email():"
+      }
+    },
+    {
+      "id": "R004",
+      "name": "Minimal Parameters",
+      "description": "Keep function arguments ≤3. If more, group them into an object. Avoid boolean flags; use separate functions instead.",
+      "example": {
+        "bad": "def process_order(user_id, order_id, price, discount, tax):",
+        "good": "def process_order(order_details):"
+      },
+      "violation_check": "More than 3 parameters in a function."
+    },
+    {
+      "id": "R005",
+      "name": "No Side Effects",
+      "description": "Functions must not modify global state or alter input parameters unexpectedly. Avoid modifying variables outside the function’s scope.",
+      "violation_check": "Function modifies a global variable or alters a parameter directly."
+    },
+    {
+      "id": "R006",
+      "name": "No Magic Numbers/Strings",
+      "description": "Use named constants instead of raw values.",
+      "example": {
+        "bad": "if attempts > 5:",
+        "good": "if attempts > MAX_LOGIN_ATTEMPTS:"
+      },
+      "violation_check": "Function contains hardcoded numbers or strings."
+    },
+    {
+      "id": "R007",
+      "name": "Minimal Comments, Only When Necessary",
+      "description": "Write self-explanatory code. Comments should clarify why, not what. Avoid redundant comments that describe obvious code behavior.",
+      "example": {
+        "bad": "x = 5  # Assign 5 to x",
+        "good": "retry_attempts = 5"
+      }
+    },
+    {
+      "id": "R008",
+      "name": "Error Handling via Exceptions",
+      "description": "Use exceptions instead of return codes for error handling. Provide meaningful error messages.",
+      "example": {
+        "bad": "return -1  # Error",
+        "good": "raise PaymentException('Invalid credit card number.')"
+      }
+    },
+    {
+      "id": "R009",
+      "name": "No Duplicate Code (DRY Principle)",
+      "description": "Extract repeated logic into reusable functions to improve maintainability.",
+      "violation_check": "Identical code blocks appearing in multiple places."
+    },
+    {
+      "id": "R010",
+      "name": "Single Responsibility Principle (SRP)",
+      "description": "Each class should have only one reason to change. Separate concerns properly to avoid coupling.",
+      "example": {
+        "bad": "Class handles both business logic and database queries.",
+        "good": "Separate class for database access and another for business logic."
+      }
+    },
+    {
+      "id": "R011",
+      "name": "Prefer Composition Over Inheritance",
+      "description": "Avoid deep inheritance trees. Use composition when possible to improve code flexibility and reduce tight coupling.",
+      "example": {
+        "bad": "class Car extends Vehicle { ... }",
+        "good": "class Car { private Engine engine; }"
+      }
+    },
+    {
+      "id": "R012",
+      "name": "Logical Code Flow",
+      "description": "Arrange functions in a top-down manner, so the code reads like a story (setup → processing → cleanup).",
+      "example": {
+        "bad": "cleanup(); process(); setup();",
+        "good": "setup(); process(); cleanup();"
+      }
+    }
+  ]
+}

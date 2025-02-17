@@ -1,0 +1,9 @@
+{
+  "instructions": [
+    "Generate **clean, maintainable, and efficient code** following Clean Code principles.",
+     "Ultimately, the goal of clean code is to write software that is easy to understand, modify, and maintain",
+    "**Provide a structured response**:",
+    "**Do NOT show example usage code** or additional unrelated examples.",
+    "**Only return the final clean code**"
+  ]
+}
