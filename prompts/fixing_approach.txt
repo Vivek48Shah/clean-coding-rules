@@ -1,5 +1,5 @@
 ### Step-by-Step Fixing Approach (Chain of Thought)
-1. Understand the Code & Expected Behavior:
+1. Understand the Code:
 - Ensure that after applying fixes, the functionality remains unchanged.
 2. Analyze the Reported Issues:
 - Identify the specific lines where violations occur.
