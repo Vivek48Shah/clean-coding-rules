@@ -6,11 +6,6 @@ A Python-based tool designed to enforce clean coding standards by analyzing code
 
 - [Introduction](#introduction)
 - [Design Overview](#design-overview)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
