@@ -31,5 +31,5 @@ The system is structured to facilitate seamless code analysis and correction thr
 	•	Validation Loop: The system iteratively validates the LLM’s output, re-analyzing the code and prompting for further refinements until all violations are resolved or a set iteration limit is reached.
 
 4. Configuration and Extensibility
-	•	Rule Definitions: Coding rules are defined in JSON format (configs/clean_code_rules.json), allowing easy customization and extension.
+	•	Rule Definitions: Coding rules are defined in JSON format (configs/clean_coding_rules.json), allowing easy customization and extension.
 	•	System Prompts: Initial instructions and guidelines for the LLM are stored in text files (configs/system_prompt.txt), facilitating straightforward updates.
