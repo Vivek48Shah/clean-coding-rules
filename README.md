@@ -1,13 +1,5 @@
 A Python-based tool designed to enforce clean coding standards and providing automated fixes using Large Language Models (LLMs).
 
-Table of Contents
-	•	Introduction
-	•	Design Overview
-	•	Installation
-	•	Usage
-	•	Configuration
-	•	Contributing
-	•	License
 
 Introduction
 
