@@ -52,21 +52,19 @@ class FixPromptGenerator:
         formatted_violations = self.format_violations(violations, original_code)
 
         prompt = f""" 
-**🔍 Detected Clean Code Violations:**
+Detected Clean Code Violations:
 {formatted_violations}
 
 ---
-### **🔧 Step-by-Step Fixing Approach (Chain of Thought)**
-
-1. **Understand the Code & Expected Behavior:**
+### Step-by-Step Fixing Approach (Chain of Thought)
+1. Understand the Code & Expected Behavior:
    - Ensure that after applying fixes, the functionality remains unchanged.
-
-2. **Analyze the Reported Issues:**
+2. Analyze the Reported Issues:
 - Identify the specific lines where violations occur.
 - Understand why each issue is a violation.
-3. **Make Minimal Fixes to Correct Only the Reported Violations:**
-- **Do NOT introduce new Clean Code violations.**
-- **Ensure that the fixed code still produces the expected output.**
+3. Make Minimal Fixes to Correct Only the Reported Violations
+- Do NOT introduce new Clean Code violations
+- Ensure that the fixed code still produces the expected output
 
 ---
 ** Original Code:**
