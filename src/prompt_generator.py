@@ -1,7 +1,6 @@
 import json
 
 class PromptGenerator:
-    """Modular Prompt Generator for Clean Code Enforcement."""
 
     def __init__(self, system_prompt_path: str, rules_path: str, instructions_path: str):
         self.system_prompt_path = system_prompt_path
