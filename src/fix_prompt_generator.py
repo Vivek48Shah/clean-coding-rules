@@ -1,7 +1,19 @@
 import json
-
+import os 
 class FixPromptGenerator:
     """Generates a structured Chain of Thought (CoT) prompt for an LLM to fix detected Clean Code violations."""
+
+    def __init__(self, prompt_file="prompt/fixing_approach.txt"):
+        self.prompt_file = prompt_file
+        self.fixing_approach = None  # Lazy load
+
+    def _load_fixing_approach(self):
+        if self.fixing_approach is None:
+            if not os.path.exists(self.prompt_file):
+                raise FileNotFoundError(f"Fixing approach file not found: {self.prompt_file}")
+            with open(self.prompt_file, "r", encoding="utf-8") as file:
+                self.fixing_approach = file.read()
+
 
     def find_function_name(self, line_number: int, code_lines: list) -> str:
         """
@@ -44,10 +56,12 @@ class FixPromptGenerator:
 
     def generate_fix_prompt(self, original_code: str, violations: list) -> str:
         """
-        Generates a structured Chain of Thought prompt for the LLM to fix the detected violations.
+        Generate a structured Chain of Thought prompt for the LLM to fix the detected violations.
         """
         if not violations:
             return "No violations detected. No fixes needed."
+
+        self._load_fixing_approach()
 
         formatted_violations = self.format_violations(violations, original_code)
 
@@ -56,19 +70,10 @@ Detected Clean Code Violations:
 {formatted_violations}
 
 ---
-### Step-by-Step Fixing Approach (Chain of Thought)
-1. Understand the Code & Expected Behavior:
-   - Ensure that after applying fixes, the functionality remains unchanged.
-2. Analyze the Reported Issues:
-- Identify the specific lines where violations occur.
-- Understand why each issue is a violation.
-3. Make Minimal Fixes to Correct Only the Reported Violations
-- Do NOT introduce new Clean Code violations
-- Ensure that the fixed code still produces the expected output
+{self.fixing_approach}
 
 ---
-** Original Code:**
+**Original Code:**
 {original_code}
-
 """
         return prompt.strip()
