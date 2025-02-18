@@ -1,27 +1,54 @@
-A Python-based tool designed to enforce clean coding standards and providing automated fixes using Large Language Models (LLMs).
+# Clean Coding Rules
 
+A Python-based tool designed to enforce clean coding standards by analyzing code for violations and providing automated fixes using Large Language Models (LLMs).
 
-Introduction
+## Table of Contents
 
-Maintaining clean and readable code is crucial for collaborative development and long-term maintenance. “Clean Coding Rules” automates the process of detecting code violations and suggests improvements, ensuring adherence to best practices.
+- [Introduction](#introduction)
+- [Design Overview](#design-overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [License](#license)
 
-Design Overview
+## Introduction
+
+Maintaining clean and readable code is crucial for collaborative development and long-term maintenance. **Clean Coding Rules** automates the process of detecting code violations and suggests improvements, ensuring adherence to best practices.
+
+---
+
+## Design Overview
 
 The system is structured to facilitate seamless code analysis and correction through the following components:
 
-1. Code Analysis and Violation Detection
-	•	AST Parsing: Utilizes Python’s Abstract Syntax Tree (AST) module to parse the code and identify structural elements.
-	•	Custom Linter (CleanCodeLinter): Analyzes the AST to detect violations of predefined clean coding rules, such as excessive function parameters or improper naming conventions.
+### 1️⃣ Code Analysis and Violation Detection
+- **AST Parsing**: Utilizes Python’s Abstract Syntax Tree (AST) module to parse the code and identify structural elements.
+- **Custom Linter (`CleanCodeLinter`)**: Analyzes the AST to detect violations of predefined clean coding rules, such as:
+  - Excessive function parameters
+  - Improper naming conventions
+  - Overly complex functions
 
-2. Prompt Generation for LLM
-	•	Prompt Generators:
-	•	PromptGenerator: Creates initial prompts incorporating system instructions and coding rules.
-	•	FixPromptGenerator: Generates prompts that detail detected violations and guide the LLM to provide specific fixes.
+### 2️⃣ Prompt Generation for LLM
+- **Prompt Generators**:
+  - `PromptGenerator`: Creates initial prompts incorporating system instructions and coding rules.
+  - `FixPromptGenerator`: Generates prompts that detail detected violations and guide the LLM to provide specific fixes.
 
-3. Iterative Code Refinement
-	•	LLM Integration: Employs a Large Language Model to generate code suggestions and fixes based on the prompts.
-	•	Validation Loop: The system iteratively validates the LLM’s output, re-analyzing the code and prompting for further refinements until all violations are resolved or a set iteration limit is reached.
+### 3️⃣ Iterative Code Refinement
+- **LLM Integration**: Employs a Large Language Model to generate code suggestions and fixes based on the prompts.
+- **Validation Loop**: The system iteratively validates the LLM’s output, re-analyzing the code and prompting for further refinements until all violations are resolved or a set iteration limit is reached.
 
-4. Configuration and Extensibility
-	•	Rule Definitions: Coding rules are defined in JSON format (configs/clean_coding_rules.json), allowing easy customization and extension.
-	•	System Prompts: Initial instructions and guidelines for the LLM are stored in text files (configs/system_prompt.txt), facilitating straightforward updates.
+### 4️⃣ Configuration and Extensibility
+- **Rule Definitions**: Coding rules are defined in JSON format (`configs/clean_coding_rules.json`), allowing easy customization and extension.
+- **System Prompts**: Initial instructions and guidelines for the LLM are stored in text files (`configs/system_prompt.txt`), facilitating straightforward updates.
+
+---
+
+## Installation
+
+To set up the **Clean Coding Rules** tool locally:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Vivek48Shah/clean-coding-rules.git
+   cd clean-coding-rules
