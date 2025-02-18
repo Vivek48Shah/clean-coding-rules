@@ -42,13 +42,5 @@ The system is structured to facilitate seamless code analysis and correction thr
 - **Rule Definitions**: Coding rules are defined in JSON format (`configs/clean_coding_rules.json`), allowing easy customization and extension.
 - **System Prompts**: Initial instructions and guidelines for the LLM are stored in text files (`configs/system_prompt.txt`), facilitating straightforward updates.
 
----
-
-## Installation
-
-To set up the **Clean Coding Rules** tool locally:
-
-1. **Clone the Repository**:
-   ```bash
    git clone https://github.com/Vivek48Shah/clean-coding-rules.git
    cd clean-coding-rules
