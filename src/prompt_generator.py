@@ -19,13 +19,13 @@ class PromptGenerator:
         """Loads and formats Clean Code rules from JSON."""
         with open(self.rules_path, "r") as file:
             rules = json.load(file)
-        return "\n".join([f"📌 {rule['id']} {rule['name']} - {rule['description']}" for rule in rules["rules"]])
+        return "\n".join([f"{rule['id']} {rule['name']} - {rule['description']}" for rule in rules["rules"]])
 
     def _load_final_instructions(self) -> str:
         """Loads final instructions from JSON."""
         with open(self.instructions_path, "r") as file:
             instructions = json.load(file)["instructions"]
-        return "\n".join([f"🔹 {instr}" for instr in instructions])
+        return "\n".join([f"{instr}" for instr in instructions])
 
     def generate_prompt(self, user_query: str) -> str:
         """Generates the final structured prompt."""
@@ -37,7 +37,7 @@ class PromptGenerator:
 {self.rules}
 
 ---
-🔹 **User Query:** {user_query}
+**User Query:** {user_query}
 
 ---
 {self.final_instructions}
